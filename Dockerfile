@@ -5,12 +5,14 @@
 # OpenJDK-only currently, and the Kafka project, Confluent, and most other
 # major Java projects test and recommend Oracle Java for production for optimal
 # performance.
+# Thanks to Ches Martin <ches@whiskeyandgrits.net> 
 
 FROM netflixoss/java:8
-MAINTAINER Ches Martin <ches@whiskeyandgrits.net>
+MAINTAINER Jose Luis Sanchez <muallin@gmail.com>
+
 
 # The Scala 2.12 build is currently recommended by the project.
-ENV KAFKA_VERSION=0.10.2.1 KAFKA_SCALA_VERSION=2.12 JMX_PORT=7203
+ENV KAFKA_VERSION=1.0.0 KAFKA_SCALA_VERSION=2.12 JMX_PORT=7203
 ENV KAFKA_RELEASE_ARCHIVE kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
 RUN mkdir /kafka /data /logs
