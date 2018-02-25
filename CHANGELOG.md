@@ -1,9 +1,10 @@
 Release Notes
 =============
 
-## latest - running releases of `latest` tag
+## 1.0.0 - 25 Feb, 2018
 
-No changes yet.
+- Upgrade to kafka 1.0.0
+
 
 ## 0.10.2.1 - 12 June, 2017
 
