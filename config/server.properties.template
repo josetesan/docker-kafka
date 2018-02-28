@@ -32,7 +32,7 @@ default.replication.factor={{KAFKA_DEFAULT_REPLICATION_FACTOR}}
 #     listeners = listener_name://host_name:port
 #   EXAMPLE:
 #     listeners = PLAINTEXT://your.host.name:9092
-listeners=PLAINTEXT://{KAFKA_LISTENER_HOST_NAME}:9092
+listeners=PLAINTEXT://{{KAFKA_LISTENER_HOST_NAME}}:9092
 
 # Enable topic deletion
 delete.topic.enable={{KAFKA_DELETE_TOPIC_ENABLE}}

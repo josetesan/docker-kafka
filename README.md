@@ -90,7 +90,7 @@ $ docker run -d \
     --name kafka \
     --volume ./data:/data --volume ./logs:/logs \
     --publish 9092:9092 --publish 7203:7203 \
-    --env KAFKA_ADVERTISED_HOST_NAME=127.0.0.1 --env ZOOKEEPER_IP=127.0.0.1 \
+    --env KAFKA_LISTENER_HOST_NAME=127.0.0.1 --env ZOOKEEPER_IP=127.0.0.1 \
     ches/kafka
 ```
 
@@ -110,7 +110,7 @@ with their default values, if any:
   Maps to Kafka's `port` setting. The port that the broker service listens on.
   You will need to explicitly publish a new port from container instances if you
   change this.
-- `KAFKA_ADVERTISED_HOST_NAME=<container's IP within docker0's subnet>`
+- `KAFKA_LISTENER_HOST_NAME=<container's hostname>`
 
   Maps to Kafka's `advertised.host.name` setting. Kafka brokers gossip the list
   of brokers in the cluster to relieve producers from depending on a ZooKeeper
@@ -164,11 +164,11 @@ with their default values, if any:
   message.max.bytes (broker config) or max.message.bytes (topic config). 
   Default: 1048576
 
-- `JAVA_RMI_SERVER_HOSTNAME=$KAFKA_ADVERTISED_HOST_NAME`
+- `JAVA_RMI_SERVER_HOSTNAME=$KAFKA_LISTENER_HOST_NAME`
 
   Maps to the `java.rmi.server.hostname` JVM property, which is used to bind the
   interface that will accept remote JMX connections. Like
-  `KAFKA_ADVERTISED_HOST_NAME`, it may be necessary to set this to a reachable
+  `KAFKA_LISTENER_HOST_NAME`, it may be necessary to set this to a reachable
   address of *the Docker host* if you wish to connect a JMX client from outside
   of Docker.
 - `ZOOKEEPER_IP=<taken from linked "zookeeper" container, if available>`
